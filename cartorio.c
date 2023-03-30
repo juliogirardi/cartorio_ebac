@@ -45,6 +45,10 @@ int main() {
 		
 		system("cls"); 
 		
+		printf("############################\n");
+		printf("##### Cartório da EBAC #####\n");
+		printf("############################\n\n");
+		
 		switch(opcao) {
 			case 1: registro();	break;
 			
@@ -102,8 +106,7 @@ int registro() {  //função responsável por cadastrar os usuários no sistema
 	fprintf(file, "%s,%s,%s,%s", cpf, nome, sobrenome, cargo); //escreve os dados dentro do arquivo
 	fclose(file); //fecha o arquivo
 	
-	system("cls");
-	printf("Usuário ** %s %s ** registrado com sucesso!!!\n\n", nome, sobrenome);
+	printf("\nUsuário ** %s %s ** registrado com sucesso!!!\n\n", nome, sobrenome);
 	system("pause");
 }
 
@@ -125,8 +128,7 @@ int consulta() {  //função responsável por consultar os usuários no sistema
 	file = fopen((strcat(cpf, ".TXT")), "r"); //abre o arquivo no modo 'read'
 	
 	if(file == NULL) {
-		system("cls");
-		printf("CPF não cadastrado!! Pressione quaquer tecla para voltar ao menu inicial. \n\n"); 
+		printf("\nCPF não cadastrado!! Pressione quaquer tecla para voltar ao menu inicial. \n\n"); 
 		system("pause");
 	} else {
 		fgets(conteudo, 200, file); //lê conteúdo do arquivo e armazena na variável 'conteudo'
@@ -145,9 +147,7 @@ int consulta() {  //função responsável por consultar os usuários no sistema
 		}
 		fclose(file); //fecha o arquivo
 	
-		system("cls");
-		
-		printf("CPF encontrado!!! Essas são as informações do usuário: \n\n");
+		printf("\nCPF encontrado!!! Essas são as informações do usuário: \n\n");
 		printf("CPF:        %s\n", user[0]);
 		printf("Nome:       %s\n", user[1]);
 		printf("Sobrenome:  %s\n", user[2]);
@@ -162,7 +162,6 @@ int deletar() {  //função responsável por deletar os usuários no sistema
 	char cpf[40];
 	char arquivo[40];
 		
-	system("cls");
 	printf("Digite o CPF a ser deletado: ");
 	scanf("%s", &cpf);
 		
